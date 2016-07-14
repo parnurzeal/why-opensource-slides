@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>let'do OPENSOURCE</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -22,13 +22,153 @@
 		</script>
 	</head>
 	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <div class="reveal">
+      <div class="slides">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Title -->
+<section>let's do <h1>OPENSOURCE</h1></section>
+<!-- ถ้ามีเวลา พยายามขีดฆ่า SOURCE แล้ว ใส่ตัว everything ข้างๆเล็กๆ -->
+
+<!-- My profile -->
+<section>
+  <section>
+    <h2>About Me</h2>
+    <img src="./images/profile-photo.jpg">
+    <div style="font-size: 50px;">Theeraphol Wattanavekin (A)</div>
+  </section>
+  <section>
+  <p>Now - Software Engineer @ G</p>
+  <p>Sometimes - Mua @ <a href="http://boonmeelab.com/">Boonmee Lab</a></p>
+  <p>Previous - Infra Engineer @ Rakuten</p>
+  </section>
+  <section>
+    <p>github.com/parnurzeal</p>
+    <p>or</p>
+    <p>www.parnurzeal.com</p>
+  </section>
+</section>
+
+<!-- GoRequest -->
+<section>
+  <section>
+    <img src="./images/Gopher_GoRequest_400x300.jpg" class="plain">
+    <span style="font-size: 90px;">GoRequest</span>
+  </section>
+  <!-- What is GoRequest?-->
+  <section>
+  <span style="font-size: 70px"> What is GoRequest?</span>
+
+  <img class="plain" width="400px" src="./images/fork-and-star.png">
+  <p>
+  <ul>
+    <li><b>"Simplified HTTP Request"</b> library for Golang</li>
+    <li>Node.js <a href="https://github.com/visionmedia/superagent">SuperAgent style</a></li>
+    <li>771 stars, 99 forks, used by 77 packages</li>
+  </ul>
+  </p>
+  </section>
+  <!-- Example -->
+  <section>
+  Basic Get Request in Go
+  <pre><code class="hljs" data-trim contenteditable>
+resp, err := http.Get("http://example.com/")
+  </code></pre>
+  </section>
+  <section>
+  How about JSON POST?
+  <pre><code class="hljs" data-trim contenteditable>
+m := map[string]interface{}{
+  "name": "backy",
+  "species": "dog",
+}
+mJson, _ := json.Marshal(m)
+contentReader := bytes.NewReader(mJson)
+req, _ := http.NewRequest("POST", "http://example.com", contentReader)
+req.Header.Set("Content-Type", "application/json")
+req.Header.Set("Notes","GoRequest is coming!")
+client := &http.Client{}
+resp, _ := client.Do(req)
+  </code></pre>
+  (Things get more complicated.)
+  </section>
+  <section>
+    "Great power comes with Great Responsibility"
+  </section>
+  <section>
+    Gain more interesting ideas & approaches
+  </section>
+  <section>
+
+  </section>
+</section>
+
+<!-- Opensource Benefits -->
+<section>
+  <!-- Quote -->
+  <section>
+    <h1>Opensource Way</h1>
+  </section>
+  <!-- We are living in the Open world.
+  Open is proved to be the preferred way to do things. -->
+  <!-- Facts -->
+  <section>
+    "Sharing makes Perfect!"
+  </section>
+</section>
+
+<!-- YouPin -->
+<section>
+  <section>
+    <img width="300" class="plain" data-src="./images/youpin-logo.png" alt="YouPin Logo">
+    <h1>YouPin.CITY</h1>
+    <aside class="notes">
+      ถ้าอยากยังไม่รู้ว่า จะยากทำอะไร ผมมีของมาเสนอครับ
+    </aside>
+  </section>
+</section>
+
+
+<!-- Happy the Scottie -->
+<section>
+  <aside class="notes">
+  ขนาดแมวยัง opensource แล้วพวกคุณละ มัวทำแมวอะไรอยู่
+  ก็ทำ opensource สิว้อย
+  </aside>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+    </div>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
