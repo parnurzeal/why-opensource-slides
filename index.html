@@ -88,30 +88,173 @@ resp, err := http.Get("http://example.com/")
   </code></pre>
   </section>
   <section>
-  How about JSON POST?
+  How about JSON POST in Go?
   <pre><code class="hljs" data-trim contenteditable>
 m := map[string]interface{}{
-  "name": "backy",
-  "species": "dog",
+    "name":    "backy",
+    "species": "dog",
 }
-mJson, _ := json.Marshal(m)
+mJson, err := json.Marshal(m)
+if err != nil {
+    panic(err)
+}
 contentReader := bytes.NewReader(mJson)
-req, _ := http.NewRequest("POST", "http://example.com", contentReader)
+req, err := http.NewRequest("POST", "http://example.com", contentReader)
+if err != nil {
+    panic(err)
+}
 req.Header.Set("Content-Type", "application/json")
-req.Header.Set("Notes","GoRequest is coming!")
+req.Header.Set("Notes", "GoRequest is coming!")
 client := &http.Client{}
-resp, _ := client.Do(req)
+resp, err := client.Do(req)
   </code></pre>
   (Things get more complicated.)
   </section>
   <section>
-    "Great power comes with Great Responsibility"
+  Node.js Superagent
+  <pre><code class="hljs" data-trim contenteditable>
+request
+ .post('http://example.com')
+ .send({ name: 'backy', species: 'dog' })
+ .set('Notes', 'Superagent is coming!')
+ .end(function(err, res){
+   if (err || !res.ok) {
+     alert('Oh no! error');
+   } else {
+     alert('yay got ' + JSON.stringify(res.body));
+   }
+ });
+  </code></pre>
   </section>
   <section>
-    Gain more interesting ideas & approaches
+  <p>GoRequest to Rescue</p>
+  <img class="plain" src="./images/fork-and-star-zero.png">
   </section>
   <section>
+  Look back on Go's JSON POST
+  <pre><code class="hljs" data-trim contenteditable>
+m := map[string]interface{}{
+    "name":    "backy",
+    "species": "dog",
+}
+mJson, err := json.Marshal(m)
+if err != nil {
+    panic(err)
+}
+contentReader := bytes.NewReader(mJson)
+req, err := http.NewRequest("POST", "http://example.com", contentReader)
+if err != nil {
+    panic(err)
+}
+req.Header.Set("Content-Type", "application/json")
+req.Header.Set("Notes", "GoRequest is coming!")
+client := &http.Client{}
+resp, err := client.Do(req)
+  </code></pre>
+  </section>
+  <section>
+  GoRequest's JSON POST
+  <pre><code class="hljs" data-trim contenteditable>
+request := gorequest.New()
+resp, body, errs := request.Post("http://example.com").
+  Set("Notes","gorequst is coming!").
+  Send(`{"name":"backy", "species":"dog"}`).
+  End()
+  </code></pre>
+  </section>
+  <!-- Try to utilize it -->
+  <section>
+  <p>iPhone6 launched!</p>
+  <img width="400px" class="plain" src="./images/iphone6-queue.png">
+  </section>
+  <section>
+  <p>iPhone Availability (Public JSON)</p>
+  <img width="800px" class="plain" src="./images/iphone6-json.png">
+  </section>
+  <section>
+  <p>Go-reserve-iphone6</p>
+  <img class="plain" src="https://camo.githubusercontent.com/d62c49d42e257d58bd970880f935c4adc2f03fff/687474703a2f2f7061726e75727a65616c2e6769746875622e696f2f676f2d726573657276652d6970686f6e65362f696d616765732f6578616d706c652e676966">
+  <aside class="notes">
+    เริ่มสนุก อยากลองของ จึงเริ่มเอาไปใช้สร้าง tools เล็กๆ
+    เช่น go-reserve-iphone6, go-amazoncafe
+    แล้วก็เอากลับไปใช้ที่ Rakuten สร้าง tool ที่ยิงไปที่
+    infra APIs เพื่อ interact และ connect APIs หลายตัวๆเข้าด้วยกัน
+    เพื่อ automate infra ซึ่งตอนนี้ก็ยัง run infra ของ Rakuten ได้เป็นอย่างดี
+  </aside>
+  </section>
+  <section>
+  <img width="350px" class="plain" src="./images/rakuten-logo.png">
+  <p>See <a href="http://parnurzeal.github.io/infra-ppt/#/">Infra PPT</a></p>
+  </section>
+  <section>
+  <h3>Advertising</h3>
+  <ul>
+    <li>golang-nuts mail group</li>
+    <li>facebook golang group</li>
+    <li>twitter</li>
+    <li>Got notice... 19 stars</li>
+  </section>
+  <section>
+    One day -> Bursting to > 300 stars?!
+  </section>
+  <section>
+<img src="./images/people-said-gorequest-is-easiest.png">
+<p style="font-size:35px">"gorequest just worked for me... couldn't be easier"</p>
+  </section>
+  <section>
+  <p><span style="font-size: 70px">Now</span><p>
 
+  <img class="plain" width="400px" src="./images/fork-and-star.png">
+  <p>771 stars, 99 forks, used by 77 packages</p>
+  </section>
+  <section>
+  <h3>Why people like it?</h3>
+  </section>
+  <section>
+  <ul>
+    <li>Good Idea</li>
+    <li>Good Documentation</li>
+    <li>Good Support</li>
+  </ul>
+  </section>
+  <section>
+  <img src="./images/Gopher_GoRequest_400x300.jpg" class="plain">
+  <p>Good Meaningful Logo :P</p>
+  </section>
+  <section>
+  <h3>What I gained?</h3>
+  </section>
+  <section>
+  <h3>Just Ways Too Many :)</h3>
+  </section>
+  <section>
+    <ul>
+      <li>Fast & Fun way of learning Go</li>
+      <li>Do things that matter (useful for other people)</li>
+      <li>Practice collaboration & communication skills</li>
+      <li>Better profile</li>
+      <li>etc..</li>
+    </ul>
+  </section>
+  <section>
+      Gain more interesting ideas & approaches
+      <div>from Community (Issues & PR)</div>
+  </section>
+  <section>
+      <h3>Opensource Way</h3>
+      <h3>To create A "Better" Software</h3>
+  </section>
+  <section>
+    <img width="600px" src="http://screenrant.com/wp-content/uploads/Spider-Man.jpeg">
+    <div>"Great Power comes with Great Responsibility"</div>
+  </section>
+  <section>
+    <img  width="325px" src="./images/Issues.png">
+    <img  width="350px" src="./images/PR.png">
+    <p>Complaint is good, issue is great, PR is awesome!</p>
+  </section>
+  <section>
+    Co-Maintainer
   </section>
 </section>
 
@@ -125,7 +268,16 @@ resp, _ := client.Do(req)
   Open is proved to be the preferred way to do things. -->
   <!-- Facts -->
   <section>
-    "Sharing makes Perfect!"
+    <img src="./images/opensources.png">
+  </section>
+  <!-- Happy the Scottie -->
+  <section>
+    <img width="600px" src="./images/Happy-cat1.jpg">
+    <p>Fb page: <a href="https://www.facebook.com/happycatnarak/">Happy the Scottie</a></p>
+    <aside class="notes">
+    ขนาดแมวยัง opensource แล้วพวกคุณละ มัวทำแมวอะไรอยู่
+    ก็ทำ opensource ด้วยเซ่
+    </aside>
   </section>
 </section>
 
@@ -138,16 +290,25 @@ resp, _ := client.Do(req)
       ถ้าอยากยังไม่รู้ว่า จะยากทำอะไร ผมมีของมาเสนอครับ
     </aside>
   </section>
+  <section>
+    <img class="plain" src="./images/youpin-problem1.png">
+  </section>
+  <section>
+    <img class="plain" width="550px" src="./images/youpin-problem2.png">
+  </section>
+  <section>
+    <img class="plain" width="800px" src="./images/youpin-team.png">
+  </section>
+  <section>
+    <img class="plain" width="550px" src="./images/youpin-concept.png">
+  </section>
+  <section>
+    <img class="plain" width="400px" src="./images/youpin-poster.jpg">
+    <h3><a href="https://youpin.city">YOUPIN.CITY</a></h3>
+  </section>
 </section>
 
 
-<!-- Happy the Scottie -->
-<section>
-  <aside class="notes">
-  ขนาดแมวยัง opensource แล้วพวกคุณละ มัวทำแมวอะไรอยู่
-  ก็ทำ opensource สิว้อย
-  </aside>
-</section>
 
 
 
